@@ -33,7 +33,6 @@ public class Withdraw extends AppCompatActivity {
     Bank bank = Bank.getInstance();
     double withdrawAmount = 0;
     ProgressDialog progressDialog;
-    int passwordTries = 3;
     TransactionDialogFragment transactionDialogFragment = new TransactionDialogFragment();
     static boolean transactionCancelled = false;
 
@@ -73,9 +72,9 @@ public class Withdraw extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        
+
         if (resultCode == RESULT_OK){
-            passwordTries--;
+            ATM.passwordTries--;
             performTransaction();
         } else {
             transactionDialogFragment.dismiss();
@@ -147,7 +146,7 @@ public class Withdraw extends AppCompatActivity {
 //                    passwordDialogFragment passwordDialogFragment = new passwordDialogFragment();
 //                    passwordDialogFragment.show(getSupportFragmentManager(), "password");
                                     Intent pfragment = new Intent(Withdraw.this, PasswordFragment.class);
-                                    if (passwordTries > 0){
+                                    if (ATM.passwordTries > 0){
                                         startActivityForResult(pfragment, 0);
                                     } else {
                                         Toast.makeText(getApplicationContext(), "Incorrect Pin. Card would be retained. Contact your bank for assistance.", Toast.LENGTH_LONG).show();

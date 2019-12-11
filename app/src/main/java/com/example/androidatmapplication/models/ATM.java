@@ -6,6 +6,7 @@ public class ATM {
     private static ATM atm = null;
     private Customer customer = Customer.getInstance();
     static private Bank bank;
+    static public int passwordTries;
 
     private ATM(){
 
@@ -13,6 +14,7 @@ public class ATM {
 
     public static ATM init(){
         atm = new ATM();
+        passwordTries = 3;
         return atm;
     }
 
