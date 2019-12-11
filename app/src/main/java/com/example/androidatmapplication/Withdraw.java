@@ -14,11 +14,14 @@ import android.icu.text.NumberFormat;
 import android.icu.util.Currency;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.androidatmapplication.models.ATM;
+import com.example.androidatmapplication.models.Bank;
+import com.example.androidatmapplication.models.Customer;
+import com.example.androidatmapplication.models.Transaction;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -70,8 +73,13 @@ public class Withdraw extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        passwordTries--;
-        performTransaction();
+        
+        if (resultCode == RESULT_OK){
+            passwordTries--;
+            performTransaction();
+        } else {
+            transactionDialogFragment.dismiss();
+        }
     }
 
     public void performTransaction(){
@@ -135,7 +143,6 @@ public class Withdraw extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     invalidPinToast.show();
-//                    progressDialog.dismiss();
                                     transactionDialogFragment.dismiss();
 //                    passwordDialogFragment passwordDialogFragment = new passwordDialogFragment();
 //                    passwordDialogFragment.show(getSupportFragmentManager(), "password");

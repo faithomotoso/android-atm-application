@@ -1,14 +1,13 @@
 package com.example.androidatmapplication;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.icu.text.NumberFormat;
 import android.icu.util.Currency;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.example.androidatmapplication.models.Customer;
 
 public class Balance extends AppCompatActivity {
 

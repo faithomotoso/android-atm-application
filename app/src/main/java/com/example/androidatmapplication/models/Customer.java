@@ -1,4 +1,4 @@
-package com.example.androidatmapplication;
+package com.example.androidatmapplication.models;
 
 import java.io.Serializable;
 
@@ -29,7 +29,7 @@ public class Customer implements Serializable {
         return customer;
     }
 
-    static void clearInstance(){
+    public static void clearInstance(){
         customer = null;
     }
 

@@ -1,4 +1,5 @@
-package com.example.androidatmapplication;
+package com.example.androidatmapplication.models;
+
 
 public class ATM {
     static private String pin;
@@ -10,12 +11,12 @@ public class ATM {
 
     };
 
-    static ATM init(){
+    public static ATM init(){
         atm = new ATM();
         return atm;
     }
 
-    static ATM getInstance(){
+    public static ATM getInstance(){
         bank = Bank.getInstance();
         return atm;
     }
@@ -25,16 +26,16 @@ public class ATM {
         return pin;
     }
 
-    void setPin(String pin){
+    public void setPin(String pin){
         this.pin = pin;
     }
 
-    static void clearInstance(){
+    public static void clearInstance(){
         atm = null;
         pin = null;
     }
 
-    String performTransaction(double withdrawAmount){
+    public String performTransaction(double withdrawAmount){
         if (bank.checkBalance(withdrawAmount)){
             int approval = bank.getApproval();
             if (approval == 1){

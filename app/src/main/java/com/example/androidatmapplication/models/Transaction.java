@@ -1,4 +1,6 @@
-package com.example.androidatmapplication;
+package com.example.androidatmapplication.models;
+
+import com.example.androidatmapplication.models.Customer;
 
 import java.io.Serializable;
 

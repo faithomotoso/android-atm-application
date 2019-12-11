@@ -4,22 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
+import com.example.androidatmapplication.models.ATM;
+import com.example.androidatmapplication.models.Customer;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -41,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
         insertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                alertDialog.show();
-//                showDialog(1);
                 dialogFragment fragment = new dialogFragment();
                 fragment.show(getSupportFragmentManager(), "cardnumber");
             }
@@ -67,9 +63,6 @@ public class MainActivity extends AppCompatActivity {
                             String selectedNum = getResources().getStringArray(R.array.cardnumbers)[i];
                             Log.v("MainActivity", "Selected number " + selectedNum);
                             for (int a = 0; a < customers.size(); a++){
-//                                if (customers.get(a).getCardNumber().equalsIgnoreCase(selectedNum)){
-//                                    customer = customers.get(a);
-//                                }
                                 switch (selectedNum){
                                     case "1893829301":
                                         customer = Customer.init("Angela Franklin", generateAmount(), "1893829301", "9903");

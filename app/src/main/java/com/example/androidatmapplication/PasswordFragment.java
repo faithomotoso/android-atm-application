@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.EditText;
 
+import com.example.androidatmapplication.models.ATM;
+
 public class PasswordFragment extends AppCompatActivity {
 
     @Override
@@ -45,6 +47,7 @@ public class PasswordFragment extends AppCompatActivity {
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            getActivity().setResult(RESULT_CANCELED);
                             dialogInterface.cancel();
                         }
                     });
