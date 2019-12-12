@@ -7,6 +7,7 @@ public class ATM {
     private Customer customer = Customer.getInstance();
     static private Bank bank;
     static public int passwordTries;
+    public double withdrawAmount = 0;
 
     private ATM(){
 
@@ -51,5 +52,24 @@ public class ATM {
         }
 
         return "";
+    }
+
+    public boolean canWithdrawOtherAmount(){
+        // only true for multiples of 500 and 1000
+        if (withdrawAmount < 500){
+            return false;
+        } else if (withdrawAmount > 500 && withdrawAmount < 1000){
+            return false;
+        } else if (withdrawAmount == 500 || withdrawAmount == 1000){
+            return true;
+        } else if (withdrawAmount > 1000){
+            double mod = withdrawAmount % 1000;
+            if (mod == 500 || mod == 0){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 }

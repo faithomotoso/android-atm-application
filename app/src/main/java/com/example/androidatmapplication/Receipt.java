@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.androidatmapplication.models.ATM;
 import com.example.androidatmapplication.models.Transaction;
 
 public class Receipt extends AppCompatActivity {
@@ -44,6 +45,9 @@ public class Receipt extends AppCompatActivity {
                 startActivity(transactionHome);
             }
         });
+
+        ATM atm = ATM.getInstance();
+        atm.withdrawAmount = 0;
 
     }
 }

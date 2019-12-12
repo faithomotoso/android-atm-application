@@ -27,6 +27,9 @@
     <string name="available_balance">Available Balance:</string>
     <string name="back_home">Home</string>
     <string name="transaction_progress">Transaction in Progress...</string>
+    <string name="others">Others</string>
+    <string name="others_layout_heading">Enter amount you want to withdraw \n (multiples of 500 and 1000 only)</string>
+    <string name="multiples_error">Amount is not a multiple of 500 or 1000.</string>
 
     <string-array name="cardnumbers">
         <item>1893829301</item>
